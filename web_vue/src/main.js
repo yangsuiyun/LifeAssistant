@@ -7,7 +7,9 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 // // import './styles/element-variables.scss'
 import 'font-awesome/css/font-awesome.min.css'
+import axios from 'axios'
 
+axios.defaults.baseURL = process.env.BASE_URL
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 

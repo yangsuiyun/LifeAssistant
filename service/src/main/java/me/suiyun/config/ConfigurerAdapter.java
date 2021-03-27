@@ -34,12 +34,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * WebMvcConfigurer
- *
- * @author Zheng Jie
- * @date 2018-11-30
- */
+
 @Configuration
 @EnableWebMvc
 public class ConfigurerAdapter implements WebMvcConfigurer {
@@ -56,10 +51,17 @@ public class ConfigurerAdapter implements WebMvcConfigurer {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("*");
+
+        // (springboot2.4以上的加入这一段可解决 allowedOrigins cannot contain the special value "*"问题)
+        List<String> allowedOriginPatterns = new ArrayList<>();
+        allowedOriginPatterns.add("http://localhost:8080");
+        config.setAllowedOriginPatterns(allowedOriginPatterns);
+//        config.setAllowedOriginPatterns("*");
+//        config.addAllowedOrigin("*");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         source.registerCorsConfiguration("/**", config);
+        System.out.println("Hello config cross");
         return new CorsFilter(source);
     }
 

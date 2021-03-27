@@ -7,7 +7,6 @@ import me.suiyun.common.base.BaseEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -21,6 +20,7 @@ public class Tags extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "tag_name")
     private String tagName;
 
 //    @ManyToMany(mappedBy = "tags")

@@ -1,39 +1,25 @@
-package me.suiyun.domain;
+package me.suiyun.blog.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.sql.Timestamp;
 
-/**
- * Created by sang on 2017/12/19.
- */
+@Entity
+@Getter
+@Setter
+@Table(name="blog_category")
 public class Category {
+    @Id
     private Long id;
+
+    @Column(name = "cate_name")
     private String cateName;
+
     private Timestamp date;
 
-    public Category() {
-    }
-
-    public Timestamp getDate() {
-        return date;
-    }
-
-    public void setDate(Timestamp date) {
-        this.date = date;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getCateName() {
-        return cateName;
-    }
-
-    public void setCateName(String cateName) {
-        this.cateName = cateName;
-    }
 }

@@ -119,5 +119,5 @@ file:
   maxSize: 100
   avatarMaxSize: 5
 
-debug: true
+debug: false
 
